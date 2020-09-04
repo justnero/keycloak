@@ -41,6 +41,8 @@
             var features = {
                 isRegistrationEmailAsUsername : ${realm.registrationEmailAsUsername?c},
                 isEditUserNameAllowed : ${realm.editUsernameAllowed?c},
+                isEditFirstNameAllowed : ${realm.editFirstNameAllowed?c},
+                isEditLastNameAllowed : ${realm.editLastNameAllowed?c},
                 isInternationalizationEnabled : ${realm.isInternationalizationEnabled()?c},
                 isLinkedAccountsEnabled : ${realm.identityFederationEnabled?c},
                 isEventsEnabled : ${isEventsEnabled?c},

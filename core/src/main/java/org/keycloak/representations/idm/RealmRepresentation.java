@@ -71,6 +71,8 @@ public class RealmRepresentation {
     protected Boolean duplicateEmailsAllowed;
     protected Boolean resetPasswordAllowed;
     protected Boolean editUsernameAllowed;
+    protected Boolean editFirstNameAllowed;
+    protected Boolean editLastNameAllowed;
 
     @Deprecated
     protected Boolean userCacheEnabled;
@@ -596,6 +598,22 @@ public class RealmRepresentation {
 
     public void setEditUsernameAllowed(Boolean editUsernameAllowed) {
         this.editUsernameAllowed = editUsernameAllowed;
+    }
+
+    public Boolean isEditFirstNameAllowed() {
+        return editFirstNameAllowed;
+    }
+
+    public void setEditFirstNameAllowed(Boolean editFirstNameAllowed) {
+        this.editFirstNameAllowed = editFirstNameAllowed;
+    }
+
+    public Boolean isEditLastNameAllowed() {
+        return editLastNameAllowed;
+    }
+
+    public void setEditLastNameAllowed(Boolean editLastNameAllowed) {
+        this.editLastNameAllowed = editLastNameAllowed;
     }
 
     @Deprecated

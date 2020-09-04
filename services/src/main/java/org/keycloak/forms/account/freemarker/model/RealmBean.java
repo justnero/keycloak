@@ -65,6 +65,14 @@ public class RealmBean {
         return realm.isEditUsernameAllowed();
     }
 
+    public boolean isEditFirstNameAllowed() {
+        return realm.isEditFirstNameAllowed();
+    }
+
+    public boolean isEditLastNameAllowed() {
+        return realm.isEditLastNameAllowed();
+    }
+
     public boolean isRegistrationEmailAsUsername() {
         return realm.isRegistrationEmailAsUsername();
     }

@@ -25,6 +25,20 @@
                 <kc-tooltip>{{:: 'editUsernameAllowed.tooltip' | translate}}</kc-tooltip>
             </div>
             <div class="form-group">
+                <label for="editFirstNameAllowed" class="col-md-2 control-label">{{:: 'editFirstNameAllowed' | translate}}</label>
+                <div class="col-md-6">
+                    <input ng-model="realm.editFirstNameAllowed" name="editFirstNameAllowed" id="editFirstNameAllowed" onoffswitch on-text="{{:: 'onText' | translate}}" off-text="{{:: 'offText' | translate}}" />
+                </div>
+                <kc-tooltip>{{:: 'editFirstNameAllowed.tooltip' | translate}}</kc-tooltip>
+            </div>
+            <div class="form-group">
+                <label for="editLastNameAllowed" class="col-md-2 control-label">{{:: 'editLastNameAllowed' | translate}}</label>
+                <div class="col-md-6">
+                    <input ng-model="realm.editLastNameAllowed" name="editLastNameAllowed" id="editLastNameAllowed" onoffswitch on-text="{{:: 'onText' | translate}}" off-text="{{:: 'offText' | translate}}" />
+                </div>
+                <kc-tooltip>{{:: 'editLastNameAllowed.tooltip' | translate}}</kc-tooltip>
+            </div>
+            <div class="form-group">
                 <label for="resetPasswordAllowed" class="col-md-2 control-label">{{:: 'resetPasswordAllowed' | translate}}</label>
                 <div class="col-md-6">
                     <input ng-model="realm.resetPasswordAllowed" name="resetPasswordAllowed" id="resetPasswordAllowed" onoffswitch on-text="{{:: 'onText' | translate}}" off-text="{{:: 'offText' | translate}}" />

@@ -99,8 +99,12 @@ public class UpdateProfile implements RequiredActionProvider, RequiredActionFact
 
         }
 
-        user.setFirstName(formData.getFirst("firstName"));
-        user.setLastName(formData.getFirst("lastName"));
+        if (realm.isEditFirstNameAllowed()) {
+            user.setFirstName(formData.getFirst("firstName"));
+        }
+        if (realm.isEditLastNameAllowed()) {
+            user.setLastName(formData.getFirst("lastName"));
+        }
 
         String email = formData.getFirst("email");
 

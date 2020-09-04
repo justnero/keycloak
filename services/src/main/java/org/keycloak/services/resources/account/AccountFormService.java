@@ -370,9 +370,7 @@ public class AccountFormService extends AbstractSecuredLocalService {
         try {
             updateUsername(formData.getFirst("username"), user, session);
             updateEmail(formData.getFirst("email"), user, session, event);
-
-            user.setFirstName(formData.getFirst("firstName"));
-            user.setLastName(formData.getFirst("lastName"));
+            updateName(formData.getFirst("firstName"), formData.getFirst("lastName"), user, session);
 
             AttributeFormDataProcessor.process(formData, realm, user);
 
@@ -1072,6 +1070,16 @@ public class AccountFormService extends AbstractSecuredLocalService {
             }
         } else if (usernameChanged) {
 
+        }
+    }
+
+    private void updateName(String firstName, String lastName, UserModel user, KeycloakSession session) {
+        RealmModel realm = session.getContext().getRealm();
+        if (realm.isEditFirstNameAllowed()) {
+            user.setFirstName(firstName);
+        }
+        if (realm.isEditLastNameAllowed()) {
+            user.setLastName(lastName);
         }
     }
 

@@ -51,6 +51,8 @@ export class AccountPage extends React.Component<AccountPageProps, AccountPageSt
     context: React.ContextType<typeof AccountServiceContext>;
     private isRegistrationEmailAsUsername: boolean = features.isRegistrationEmailAsUsername;
     private isEditUserNameAllowed: boolean = features.isEditUserNameAllowed;
+    private isEditFirstNameAllowed: boolean = features.isEditFirstNameAllowed;
+    private isEditLastNameAllowed: boolean = features.isEditLastNameAllowed;
     private readonly DEFAULT_STATE: AccountPageState = {
         errors: {
             username: '',
@@ -174,17 +176,8 @@ export class AccountPage extends React.Component<AccountPageProps, AccountPageSt
                         helperTextInvalid={this.state.errors.firstName}
                         isValid={this.state.errors.firstName === ''}
                     >
-                        <TextInput
-                            isRequired
-                            type="text"
-                            id="first-name"
-                            name="firstName"
-                            maxLength={254}
-                            value={fields.firstName}
-                            onChange={this.handleChange}
-                            isValid={this.state.errors.firstName === ''}
-                        >
-                        </TextInput>
+                        {this.isEditFirstNameAllowed && <this.FirstNameInput />}
+                        {!this.isEditFirstNameAllowed && <this.RestrictedFirstNameInput />}
                     </FormGroup>
                     <FormGroup
                         label={Msg.localize('lastName')}
@@ -193,17 +186,8 @@ export class AccountPage extends React.Component<AccountPageProps, AccountPageSt
                         helperTextInvalid={this.state.errors.lastName}
                         isValid={this.state.errors.lastName === ''}
                     >
-                        <TextInput
-                            isRequired
-                            type="text"
-                            id="last-name"
-                            name="lastName"
-                            maxLength={254}
-                            value={fields.lastName}
-                            onChange={this.handleChange}
-                            isValid={this.state.errors.lastName === ''}
-                        >
-                        </TextInput>
+                        {this.isEditLastNameAllowed && <this.LastNameInput />}
+                        {!this.isEditLastNameAllowed && <this.RestrictedLastNameInput />}
                     </FormGroup>
                     {features.isInternationalizationEnabled && <FormGroup
                         label={Msg.localize('selectLocale')}
@@ -261,6 +245,56 @@ export class AccountPage extends React.Component<AccountPageProps, AccountPageSt
             id="user-name"
             name="username"
             value={this.state.formFields.username}
+        >
+        </TextInput>
+    );
+
+    private FirstNameInput = () => (
+        <TextInput
+            isRequired
+            type="text"
+            id="first-name"
+            name="firstName"
+            maxLength={254}
+            value={this.state.formFields.firstName}
+            onChange={this.handleChange}
+            isValid={this.state.errors.firstName === ''}
+        >
+        </TextInput>
+    );
+
+    private RestrictedFirstNameInput = () => (
+        <TextInput
+            isDisabled
+            type="text"
+            id="first-name"
+            name="firstname"
+            value={this.state.formFields.firstName}
+        >
+        </TextInput>
+    );
+
+    private LastNameInput = () => (
+        <TextInput
+            isRequired
+            type="text"
+            id="last-name"
+            name="lastName"
+            maxLength={254}
+            value={this.state.formFields.lastName}
+            onChange={this.handleChange}
+            isValid={this.state.errors.lastName === ''}
+        >
+        </TextInput>
+    );
+
+    private RestrictedLastNameInput = () => (
+        <TextInput
+            isDisabled
+            type="text"
+            id="last-name"
+            name="lastname"
+            value={this.state.formFields.lastName}
         >
         </TextInput>
     );

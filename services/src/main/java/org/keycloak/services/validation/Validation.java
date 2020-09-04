@@ -92,16 +92,18 @@ public class Validation {
     
     public static List<FormMessage> validateUpdateProfileForm(RealmModel realm, MultivaluedMap<String, String> formData, boolean userNameRequired) {
         List<FormMessage> errors = new ArrayList<>();
+        boolean firstNameRequired = realm.isEditFirstNameAllowed();
+        boolean lastNameRequired = realm.isEditLastNameAllowed();
         
         if (!realm.isRegistrationEmailAsUsername() && userNameRequired && isBlank(formData.getFirst(FIELD_USERNAME))) {
             addError(errors, FIELD_USERNAME, Messages.MISSING_USERNAME);
         }
 
-        if (isBlank(formData.getFirst(FIELD_FIRST_NAME))) {
+        if (firstNameRequired && isBlank(formData.getFirst(FIELD_FIRST_NAME))) {
             addError(errors, FIELD_FIRST_NAME, Messages.MISSING_FIRST_NAME);
         }
 
-        if (isBlank(formData.getFirst(FIELD_LAST_NAME))) {
+        if (lastNameRequired && isBlank(formData.getFirst(FIELD_LAST_NAME))) {
             addError(errors, FIELD_LAST_NAME, Messages.MISSING_LAST_NAME);
         }
 
@@ -122,7 +124,13 @@ public class Validation {
      * @return true if user object contains all mandatory values, false if some mandatory value is missing
      */
     public static boolean validateUserMandatoryFields(RealmModel realm, UpdateProfileContext user){
-        return!(isBlank(user.getFirstName()) || isBlank(user.getLastName()) || isBlank(user.getEmail()));        
+        if (realm.isEditFirstNameAllowed() && isBlank(user.getFirstName())) {
+            return false;
+        }
+        if (realm.isEditLastNameAllowed() && isBlank(user.getLastName())) {
+            return false;
+        }
+        return !isBlank(user.getEmail());
     }
 
     /**

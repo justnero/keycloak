@@ -65,6 +65,18 @@ public class SerializedBrokeredIdentityContext implements UpdateProfileContext {
         return !emailAsUsername;
     }
 
+    @JsonIgnore
+    @Override
+    public boolean isEditFirstNameAllowed() {
+        return true;
+    }
+
+    @JsonIgnore
+    @Override
+    public boolean isEditLastNameAllowed() {
+        return true;
+    }
+
     public String getId() {
         return id;
     }

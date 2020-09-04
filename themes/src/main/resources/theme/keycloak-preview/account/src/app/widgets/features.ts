@@ -18,6 +18,8 @@
  export interface Features {
     isRegistrationEmailAsUsername: boolean;
     isEditUserNameAllowed: boolean;
+    isEditFirstNameAllowed: boolean;
+    isEditLastNameAllowed: boolean;
     isInternationalizationEnabled: boolean;
     isLinkedAccountsEnabled: boolean;
     isEventsEnabled: boolean;

@@ -404,6 +404,28 @@ public class RealmAdapter implements RealmModel, JpaModel<RealmEntity> {
     }
 
     @Override
+    public boolean isEditFirstNameAllowed() {
+        return realm.isEditFirstNameAllowed();
+    }
+
+    @Override
+    public void setEditFirstNameAllowed(boolean editFirstNameAllowed) {
+        realm.setEditFirstNameAllowed(editFirstNameAllowed);
+        em.flush();
+    }
+
+    @Override
+    public boolean isEditLastNameAllowed() {
+        return realm.isEditLastNameAllowed();
+    }
+
+    @Override
+    public void setEditLastNameAllowed(boolean editLastNameAllowed) {
+        realm.setEditLastNameAllowed(editLastNameAllowed);
+        em.flush();
+    }
+
+    @Override
     public int getNotBefore() {
         return realm.getNotBefore();
     }

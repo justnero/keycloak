@@ -116,6 +116,14 @@ public interface RealmModel extends RoleContainerModel {
 
     void setEditUsernameAllowed(boolean editUsernameAllowed);
 
+    boolean isEditFirstNameAllowed();
+
+    void setEditFirstNameAllowed(boolean editFirstNameAllowed);
+
+    boolean isEditLastNameAllowed();
+
+    void setEditLastNameAllowed(boolean editLastNameAllowed);
+
     boolean isUserManagedAccessAllowed();
 
     void setUserManagedAccessAllowed(boolean userManagedAccessAllowed);

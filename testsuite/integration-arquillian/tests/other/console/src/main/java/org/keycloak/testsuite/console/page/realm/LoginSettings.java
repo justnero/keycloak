@@ -56,6 +56,12 @@ public class LoginSettings extends RealmSettings {
 
         @FindBy(xpath = ".//div[contains(@class,'onoffswitch') and ./input[@id='editUsernameAllowed']]")
         private OnOffSwitch editUsernameAllowed;
+
+        @FindBy(xpath = ".//div[contains(@class,'onoffswitch') and ./input[@id='editFirstNameAllowed']]")
+        private OnOffSwitch editFirstNameAllowed;
+
+        @FindBy(xpath = ".//div[contains(@class,'onoffswitch') and ./input[@id='editLastNameAllowed']]")
+        private OnOffSwitch editLastNameAllowed;
         
         @FindBy(xpath = ".//div[contains(@class,'onoffswitch') and ./input[@id='resetPasswordAllowed']]")
         private OnOffSwitch resetPasswordAllowed;
@@ -84,13 +90,29 @@ public class LoginSettings extends RealmSettings {
         public boolean isEmailAsUsername() {
             return emailAsUsernameOnOffSwitch.isOn();
         }
-        
+
         public boolean isEditUsernameAllowed() {
             return editUsernameAllowed.isOn();
         }
-        
+
         public void setEditUsernameAllowed(boolean allowed) {
             editUsernameAllowed.setOn(allowed);
+        }
+
+        public boolean isEditFirstNameAllowed() {
+            return editFirstNameAllowed.isOn();
+        }
+
+        public void setEditFirstNameAllowed(boolean allowed) {
+            editFirstNameAllowed.setOn(allowed);
+        }
+
+        public boolean isEditLastNameAllowed() {
+            return editLastNameAllowed.isOn();
+        }
+
+        public void setEditLastNameAllowed(boolean allowed) {
+            editLastNameAllowed.setOn(allowed);
         }
         
         public boolean isResetPasswordAllowed() {

@@ -372,6 +372,30 @@ public class RealmAdapter implements CachedRealmModel {
     }
 
     @Override
+    public boolean isEditFirstNameAllowed() {
+        if (isUpdated()) return updated.isEditFirstNameAllowed();
+        return cached.isEditFirstNameAllowed();
+    }
+
+    @Override
+    public void setEditFirstNameAllowed(boolean editFirstNameAllowed) {
+        getDelegateForUpdate();
+        updated.setEditFirstNameAllowed(editFirstNameAllowed);
+    }
+
+    @Override
+    public boolean isEditLastNameAllowed() {
+        if (isUpdated()) return updated.isEditLastNameAllowed();
+        return cached.isEditLastNameAllowed();
+    }
+
+    @Override
+    public void setEditLastNameAllowed(boolean editLastNameAllowed) {
+        getDelegateForUpdate();
+        updated.setEditLastNameAllowed(editLastNameAllowed);
+    }
+
+    @Override
     public boolean isRevokeRefreshToken() {
         if (isUpdated()) return updated.isRevokeRefreshToken();
         return cached.isRevokeRefreshToken();

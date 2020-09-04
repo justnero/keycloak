@@ -85,6 +85,14 @@ public class RealmBean {
         return realm.isEditUsernameAllowed();
     }
 
+    public boolean isEditFirstNameAllowed() {
+        return realm.isEditFirstNameAllowed();
+    }
+
+    public boolean isEditLastNameAllowed() {
+        return realm.isEditLastNameAllowed();
+    }
+
     public boolean isPassword() {
         for (RequiredCredentialModel r : realm.getRequiredCredentials()) {
             if (r.getType().equals(CredentialRepresentation.PASSWORD)) {

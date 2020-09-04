@@ -38,21 +38,21 @@
 
         <div class="form-group ${messagesPerField.printIfExists('firstName','has-error')}">
             <div class="col-sm-2 col-md-2">
-                <label for="firstName" class="control-label">${msg("firstName")}</label> <span class="required">*</span>
+                <label for="firstName" class="control-label">${msg("firstName")}</label> <#if realm.editFirstNameAllowed><span class="required">*</span></#if>
             </div>
 
             <div class="col-sm-10 col-md-10">
-                <input type="text" class="form-control" id="firstName" name="firstName" value="${(account.firstName!'')}"/>
+                <input type="text" class="form-control" id="firstName" name="firstName" <#if !realm.editFirstNameAllowed>disabled="disabled"</#if> value="${(account.firstName!'')}"/>
             </div>
         </div>
 
         <div class="form-group ${messagesPerField.printIfExists('lastName','has-error')}">
             <div class="col-sm-2 col-md-2">
-                <label for="lastName" class="control-label">${msg("lastName")}</label> <span class="required">*</span>
+                <label for="lastName" class="control-label">${msg("lastName")}</label> <#if realm.editLastNameAllowed><span class="required">*</span></#if>
             </div>
 
             <div class="col-sm-10 col-md-10">
-                <input type="text" class="form-control" id="lastName" name="lastName" value="${(account.lastName!'')}"/>
+                <input type="text" class="form-control" id="lastName" name="lastName" <#if !realm.editLastNameAllowed>disabled="disabled"</#if> value="${(account.lastName!'')}"/>
             </div>
         </div>
 

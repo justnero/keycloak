@@ -30,6 +30,10 @@ public interface UpdateProfileContext {
 
     boolean isEditUsernameAllowed();
 
+    boolean isEditFirstNameAllowed();
+
+    boolean isEditLastNameAllowed();
+
     String getUsername();
 
     void setUsername(String username);

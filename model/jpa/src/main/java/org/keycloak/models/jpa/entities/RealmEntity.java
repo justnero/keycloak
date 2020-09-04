@@ -99,6 +99,10 @@ public class RealmEntity {
 
     @Column(name="EDIT_USERNAME_ALLOWED")
     protected boolean editUsernameAllowed;
+    @Column(name="EDIT_FIRST_NAME_ALLOWED")
+    protected boolean editFirstNameAllowed;
+    @Column(name="EDIT_LAST_NAME_ALLOWED")
+    protected boolean editLastNameAllowed;
 
     @Column(name="REVOKE_REFRESH_TOKEN")
     private boolean revokeRefreshToken;
@@ -338,6 +342,22 @@ public class RealmEntity {
 
     public void setEditUsernameAllowed(boolean editUsernameAllowed) {
         this.editUsernameAllowed = editUsernameAllowed;
+    }
+
+    public boolean isEditFirstNameAllowed() {
+        return editFirstNameAllowed;
+    }
+
+    public void setEditFirstNameAllowed(boolean editFirstNameAllowed) {
+        this.editFirstNameAllowed = editFirstNameAllowed;
+    }
+
+    public boolean isEditLastNameAllowed() {
+        return editLastNameAllowed;
+    }
+
+    public void setEditLastNameAllowed(boolean editLastNameAllowed) {
+        this.editLastNameAllowed = editLastNameAllowed;
     }
 
     public boolean isRevokeRefreshToken() {

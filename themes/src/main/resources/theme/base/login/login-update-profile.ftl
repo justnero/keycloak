@@ -23,6 +23,7 @@
                 </div>
             </div>
 
+            <#if realm.editFirstNameAllowed>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
@@ -31,7 +32,9 @@
                     <input type="text" id="firstName" name="firstName" value="${(user.firstName!'')}" class="${properties.kcInputClass!}" />
                 </div>
             </div>
+            </#if>
 
+            <#if realm.editLastNameAllowed>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
@@ -40,6 +43,7 @@
                     <input type="text" id="lastName" name="lastName" value="${(user.lastName!'')}" class="${properties.kcInputClass!}" />
                 </div>
             </div>
+            </#if>
 
             <div class="${properties.kcFormGroupClass!}">
                 <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">

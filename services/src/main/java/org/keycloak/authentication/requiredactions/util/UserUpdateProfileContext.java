@@ -42,6 +42,16 @@ public class UserUpdateProfileContext implements UpdateProfileContext {
     }
 
     @Override
+    public boolean isEditFirstNameAllowed() {
+        return realm.isEditFirstNameAllowed();
+    }
+
+    @Override
+    public boolean isEditLastNameAllowed() {
+        return realm.isEditLastNameAllowed();
+    }
+
+    @Override
     public String getUsername() {
         return user.getUsername();
     }
